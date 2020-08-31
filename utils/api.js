@@ -1,4 +1,5 @@
 import { AsyncStorage } from 'react-native';
+import { decks } from './_DATA';
 
 const STORAGE_KEY = 'flashcards:data';
 
@@ -23,10 +24,10 @@ export const addNewCard = (deckTitle, cardDetails) => {
     .then(data => includeCard(JSON.parse(data), deckTitle, cardDetails));
   } catch (error) {
     console.error('Error saving new card to file', error);
-  }  
+  }
 }
 
-includeCard = (data, deckTitle, cardDetails) => {
+export function includeCard (data, deckTitle, cardDetails) {
   const newCard = {
     [deckTitle]: {
       'title': deckTitle,
@@ -43,35 +44,9 @@ includeCard = (data, deckTitle, cardDetails) => {
   AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(newData));
 }
 
-initialData = (data) => {
+export function initialData (data) {
   data === null
-  && AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(
-      {
-        React: {
-          title: 'React',
-          questions: [
-            {
-              question: 'What is React?',
-              answer: 'A library for managing user interfaces'
-            },
-            {
-              question: 'Where do you make Ajax requests in React?',
-              answer: 'The componentDidMount lifecycle event'
-            }
-          ]
-        },
-        JavaScript: {
-          title: 'JavaScript',
-          questions: [
-            {
-              question: 'What is a closure?',
-              answer: 'The combination of a function and the lexical environment within which that function was declared.'
-            }
-          ]
-        }
-      }
-    )
-  )
+  && AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(decks));
 
   return AsyncStorage.getItem(STORAGE_KEY)
   .then(out => JSON.parse(out))
