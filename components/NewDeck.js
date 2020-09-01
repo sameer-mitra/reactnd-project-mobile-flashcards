@@ -5,7 +5,7 @@ import TextButton from './TextButton';
 import { saveDeckTitle } from '../actions';
 import { styles } from '../utils/styles';
 
-export default class NewDeck extends Component {
+class NewDeck extends Component {
   state = {
     title: '',
     questions: []
@@ -70,6 +70,4 @@ const mapDispatchToProps = (dispatch) => (
     newDeckTitle: (title) => dispatch(saveDeckTitle(title)),
   }
 )
-/**
 export default connect(mapStateToProps, mapDispatchToProps)(NewDeck);
-**/

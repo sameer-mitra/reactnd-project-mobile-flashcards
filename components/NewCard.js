@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { saveNewCard } from '../actions';
 import { styles } from '../utils/styles';
 
-export default class NewCard extends Component {
+class NewCard extends Component {
 
   state = {
     question: '',
@@ -111,6 +111,5 @@ const mapDispatchToProps = (dispatch) => (
     newCard: (title, cardDetails) => dispatch(saveNewCard(title, cardDetails)),
   }
 );
-/**
+
 export default connect(mapStateToProps, mapDispatchToProps)(NewCard);
-**/
