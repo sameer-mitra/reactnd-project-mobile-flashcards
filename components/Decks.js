@@ -41,8 +41,8 @@ class Decks extends React.Component {
   )
 
   render(){
-    db = this.props.decksList;
-    data = Object.keys(db).map(key => (
+    const db = this.props.decksList;
+    const data = Object.keys(db).map(key => (
       {
         'key': key,
         'title': db[key].title,

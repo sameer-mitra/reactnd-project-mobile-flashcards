@@ -10,7 +10,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { black, white, purple, lightPurp } from './utils/colors';
 import { Ionicons } from '@expo/vector-icons';
 import { setLocalNotification } from './utils/helpers';
-import { AppNavigator } from './components/AppNavigator';
+import AppNavigator from './components/AppNavigator';
 
 function MainStatusBar ({backgroundColor, ...props}) {
   return (
