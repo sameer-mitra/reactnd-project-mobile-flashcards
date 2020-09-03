@@ -1,9 +1,9 @@
 import { StyleSheet, Platform } from 'react-native';
-import { white, lightPurp, black, red } from './colors';
+import { white, lightPurp, black, red, blue } from './colors';
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: lightPurp,
+    backgroundColor: blue,
     borderRadius: Platform.OS === 'ios' ? 16 : 2,
     padding: 20,
     marginLeft: 10,

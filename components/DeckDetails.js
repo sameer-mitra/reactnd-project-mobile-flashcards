@@ -7,7 +7,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { white } from '../utils/colors';
 import { clearLocalNotification, setLocalNotification } from '../utils/helpers';
 
-export default class DeckDetails extends Component {
+class DeckDetails extends Component {
 
   state = {
     title: '',
@@ -94,6 +94,5 @@ const mapStateToProps = (actions) => (
     decksList: actions.decks,
   }
 )
-/**
+
 export default connect(mapStateToProps)(DeckDetails);
-**/

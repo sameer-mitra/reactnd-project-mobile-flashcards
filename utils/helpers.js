@@ -1,13 +1,24 @@
 import React from 'react';
 import { AsyncStorage } from 'react-native';
-import * as Notifications from 'expo-notifications';
+import { Notifications } from 'expo';
+//import * as Notifications from 'expo-notifications';
 import * as Permissions from 'expo-permissions';
 
 const NOTIFICATION_KEY = 'flashcards:notification';
+const CHANNEL_ID = 'DailyReminder';
 
 export function clearLocalNotification () {
   return AsyncStorage.removeItem(NOTIFICATION_KEY)
   .then(Notifications.cancelAllScheduledNotificationsAsync());
+}
+
+function createChannel() {
+  return {
+    name: 'Daily Reminder',
+    description: 'This is a daily reminder for you to study your flashcards.',
+    sound: true,
+    priority: 'high'
+  };
 }
 
 export function createNotification () {
@@ -26,32 +37,45 @@ export function createNotification () {
   }
 }
 
-export function setLocalNotification () {
+export function setLocalNotification() {
   AsyncStorage.getItem(NOTIFICATION_KEY)
-  .then(JSON.parse)
-  .then((data) => {
-    if (data === null) {
-      Permissions.askAsync(Permissions.NOTIFICATIONS)
-      .then(({ status }) => {
-        if (status === 'granted') {
-          Notifications.cancelAllScheduledNotificationsAsync();
+    .then(JSON.parse)
+    .then(data => {
+      // if (true) {
+      if (data === null) {
+        Permissions.askAsync(Permissions.NOTIFICATIONS).then(({ status }) => {
+          // console.log('got in');
+          // console.log('data', data);
+          if (status === 'granted') {
+            // Notifications.presentLocalNotificationAsync(createNotification());
+            Notifications.createChannelAndroidAsync(CHANNEL_ID, createChannel())
+              .then(val => console.log('channel return:', val))
+              .then(() => {
+                Notifications.cancelAllScheduledNotificationsAsync();
 
-          let tomorrow = new Date();
-          tomorrow.setDate(tomorrow.getDate() + 1);
-          tomorrow.setHours(21);
-          tomorrow.setMinutes(40);
+                const tomorrow = new Date();
+                // 2 minute from now
+                // tomorrow.setTime(tomorrow.getTime() + 2 * 60000);
 
-          Notifications.scheduleLocalNotificationAsync(
-            createNotification(),
-            {
-              time: tomorrow,
-              repeat: 'day',
-            }
-          )
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                tomorrow.setHours(20);
+                tomorrow.setMinutes(0);
 
-          AsyncStorage.setItem(NOTIFICATION_KEY, JSON.stringify(true));
-        }
-      })
-    }
-  })
+                Notifications.scheduleLocalNotificationAsync(
+                  createNotification(),
+                  {
+                    time: tomorrow,
+                    repeat: 'day'
+                  }
+                );
+
+                AsyncStorage.setItem(NOTIFICATION_KEY, JSON.stringify(true));
+              })
+              .catch(err => {
+                console.log('err', err);
+              });
+          }
+        });
+      }
+    });
 }
