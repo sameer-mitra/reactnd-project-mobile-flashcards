@@ -22,7 +22,7 @@ function MainStatusBar ({backgroundColor, ...props}) {
 
 export default class App extends React.Component {
 
-  componentDidMount() {
+  UNSAFE_componentDidMount() {
     setLocalNotification();
   }
 

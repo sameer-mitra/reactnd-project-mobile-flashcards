@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import TextButton from './TextButton';
 import { styles } from '../utils/styles';
 
-export default class Quiz extends Component {
+class Quiz extends Component {
   static navigationOptions = ({ navigation }) => {
     const { title } = navigation.state.params
 
@@ -22,10 +22,10 @@ export default class Quiz extends Component {
     score: 0
   }
 
-  componentDidMount() {
+  UNSAFE_componentDidMount() {
     const title = this.props.navigation.state.params.title;
     const questions = this.props.decksList[title].questions;
-
+console.log('Quiz:' + questions);
     this.setState({
       title: this.props.navigation.state.params.title,
       currentQuestion: questions[0].question,
@@ -151,6 +151,5 @@ const mapStateToProps = (actions) => (
     decksList: actions.decks,
   }
 )
-/**
+
 export default connect(mapStateToProps)(Quiz);
-**/

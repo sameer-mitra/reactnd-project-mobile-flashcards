@@ -13,7 +13,7 @@ class Decks extends React.Component {
     decks: []
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.props.getDecks();
   }
 

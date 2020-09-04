@@ -18,13 +18,13 @@ class DeckDetails extends Component {
     title:  navigation.state.params.title,
     headerLeft: <Ionicons
                   name={Platform.OS === 'ios' ? 'ios-arrow-back' : 'md-arrow-back'}
-                  onPress={() => navigation.navigate('Deck')}
+                  onPress={() => navigation.navigate('Decks')}
                   size={Platform.OS === 'ios' ? 30: 20}
                   style={ {paddingLeft:15, paddingRight:15, color:white} }
                 />,
   });
 
-  componentDidMount() {
+  UNSAFE_componentDidMount() {
     const data = this.props.decksList
     const title = this.props.navigation.state.params.title;
     const length = data[title].questions.length;
@@ -36,7 +36,7 @@ class DeckDetails extends Component {
 
   startQuiz = () => {
     if (this.state.length !== 0) {
-      clearLocalNotification().then(setLocalNotification())
+      //clearLocalNotification().then(setLocalNotification())
       this.props.navigation.navigate(
         'Quiz',
         {
