@@ -24,10 +24,11 @@ class DeckDetails extends Component {
                 />,
   });
 
-  UNSAFE_componentDidMount() {
-    const data = this.props.decksList
+  UNSAFE_componentWillMount() {
+    const data = this.props.decksList;
     const title = this.props.navigation.state.params.title;
     const length = data[title].questions.length;
+    console.log(data);
     this.setState({
       title: title,
       length: length,

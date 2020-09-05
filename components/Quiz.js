@@ -22,7 +22,7 @@ class Quiz extends Component {
     score: 0
   }
 
-  UNSAFE_componentDidMount() {
+  UNSAFE_componentWillMount() {
     const title = this.props.navigation.state.params.title;
     const questions = this.props.decksList[title].questions;
 console.log('Quiz:' + questions);
