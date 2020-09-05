@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React Native App](https://github.com/expo/create-react-native-app).
 
 # Mobile Flashcards Project by Sameer Mitra
 
@@ -71,7 +71,7 @@ Logic for notification has been implemented. Notifications are generated at a sp
 The app works correctly in either Android OR iOS devices (or emulator).
 Project README identifies which platform(s) have been tested.
 
-## Code Quality
+### Code Quality
 #### Is the code well written and reasonably structured?
 Project code uses reasonable naming conventions. Components are written for reuse and use a modular structure.
 
