@@ -3,6 +3,7 @@ import { Text, View, StyleSheet, Platform, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import TextButton from './TextButton';
 import { styles } from '../utils/styles';
+import { setLocalNotification, clearLocalNotification } from '../utils/helpers';
 
 class Quiz extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -20,6 +21,10 @@ class Quiz extends Component {
     questionNumber: 0,
     numberOfQuestions: 0,
     score: 0
+  }
+
+  UNSAFE_componentDidMount() {
+    clearLocalNotification().then(setLocalNotification);
   }
 
   UNSAFE_componentWillMount() {
