@@ -12,7 +12,7 @@ import Constants from 'expo-constants';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createStackNavigator } from 'react-navigation-stack';
-import { black, white, purple, lightPurp, blue } from '../utils/colors';
+import { black, white, purple, lightPurp, blue, azure } from '../utils/colors';
 import { Ionicons } from '@expo/vector-icons';
 import { setLocalNotification } from '../utils/helpers';
 
@@ -46,7 +46,7 @@ const Tabs = createBottomTabNavigator(
   {
   tabBarOptions: {
     style: {
-      backgroundColor: blue,
+      backgroundColor: white,
     },
   }
   });
@@ -61,7 +61,7 @@ Home: {
     navigationOptions: {
       headerTintColor: white,
       headerStyle: {
-        backgroundColor: blue
+        backgroundColor: azure
       }
     }
   },
@@ -70,7 +70,7 @@ Home: {
     navigationOptions: {
       headerTintColor: white,
       headerStyle: {
-        backgroundColor: blue
+        backgroundColor: azure
       }
     }
   },
@@ -79,7 +79,7 @@ Home: {
     navigationOptions: {
       headerTintColor: white,
       headerStyle: {
-        backgroundColor: blue
+        backgroundColor: azure
       }
     },
   },

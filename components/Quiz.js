@@ -117,8 +117,8 @@ console.log('Quiz:' + questions);
             <Text style={styles.questionText}>{this.state.currentQuestion}</Text>
             <TextButton style={[styles.container, styles.buttonText]} onPress={() => this.showAnswer()}>Answer</TextButton>
             <Text style={styles.questionText}>{this.state.currentAnswer}</Text>
-            <TextButton style={[styles.container, styles.buttonText]} onPress={() => this.nextQuestion(true)}>Correct</TextButton>
-            <TextButton style={[styles.container, styles.buttonText]} onPress={() => this.nextQuestion(false)}>Incorrect</TextButton>
+            <TextButton style={[styles.container, styles.buttonTextCorrect]} onPress={() => this.nextQuestion(true)}>Correct</TextButton>
+            <TextButton style={[styles.container, styles.buttonTextIncorrect]} onPress={() => this.nextQuestion(false)}>Incorrect</TextButton>
           </View>
         :
           <View>

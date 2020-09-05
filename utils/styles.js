@@ -1,9 +1,9 @@
 import { StyleSheet, Platform } from 'react-native';
-import { white, lightPurp, black, red, blue } from './colors';
+import { white, lightPurp, black, green, red, blue, azure } from './colors';
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: blue,
+    backgroundColor: azure,
     borderRadius: Platform.OS === 'ios' ? 16 : 2,
     padding: 20,
     marginLeft: 10,
@@ -59,6 +59,27 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     color: white,
+    backgroundColor: azure,
+    paddingTop: 20,
+    paddingBottom: 20,
+    padding: 20
+  },
+  buttonTextCorrect: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: white,
+    backgroundColor: green,
+    paddingTop: 20,
+    paddingBottom: 20,
+    padding: 20
+  },
+  buttonTextIncorrect: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: white,
+    backgroundColor: red,
     paddingTop: 20,
     paddingBottom: 20,
     padding: 20
