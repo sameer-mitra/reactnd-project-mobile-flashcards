@@ -37,7 +37,7 @@ class DeckDetails extends Component {
 
   startQuiz = () => {
     if (this.state.length !== 0) {
-      //clearLocalNotification().then(setLocalNotification())
+      clearLocalNotification().then(setLocalNotification())
       this.props.navigation.navigate(
         'Quiz',
         {
