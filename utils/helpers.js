@@ -3,6 +3,7 @@ import { AsyncStorage } from 'react-native';
 import { Notifications } from 'expo';
 //import * as Notifications from 'expo-notifications';
 import * as Permissions from 'expo-permissions';
+import Constants from 'expo-constants';
 
 const NOTIFICATION_KEY = 'flashcards:notification';
 const CHANNEL_ID = 'DailyReminder';
@@ -52,10 +53,10 @@ export function setLocalNotification() {
                 const tomorrow = new Date();
 
                 //Testing
-                //tomorrow.setMinutes(tomorrow.getMinutes() + 2);
-                tomorrow.setDate(tomorrow.getDate() + 1);
-                tomorrow.setHours(20);
-                tomorrow.setMinutes(0);
+                tomorrow.setMinutes(tomorrow.getMinutes() + 1);
+                //tomorrow.setDate(tomorrow.getDate() + 1);
+                //tomorrow.setHours(20);
+                //tomorrow.setMinutes(0);
 
                 Notifications.scheduleLocalNotificationAsync(
                   createNotification(),

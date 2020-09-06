@@ -6,6 +6,7 @@ import { styles } from '../utils/styles';
 import { Ionicons } from '@expo/vector-icons';
 import { white } from '../utils/colors';
 import { clearLocalNotification, setLocalNotification } from '../utils/helpers';
+import Constants from 'expo-constants';
 
 class DeckDetails extends Component {
 
@@ -37,7 +38,10 @@ class DeckDetails extends Component {
 
   startQuiz = () => {
     if (this.state.length !== 0) {
-      clearLocalNotification().then(setLocalNotification())
+      if(Platform.OS === "ios" || Platform.OS === "android"){
+        clearLocalNotification().then(setLocalNotification())
+      }
+
       this.props.navigation.navigate(
         'Quiz',
         {

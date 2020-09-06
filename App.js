@@ -5,7 +5,6 @@ import store from './store';
 import reducer from './reducers';
 import Constants from 'expo-constants';
 import { TabNavigator, StackNavigator } from 'react-navigation';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createStackNavigator } from 'react-navigation-stack';
 import { black, white, purple, lightPurp } from './utils/colors';
 import { Ionicons } from '@expo/vector-icons';

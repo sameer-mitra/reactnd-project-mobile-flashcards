@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import TextButton from './TextButton';
 import { styles } from '../utils/styles';
 import { setLocalNotification, clearLocalNotification } from '../utils/helpers';
+import Constants from 'expo-constants';
 
 class Quiz extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -24,7 +25,9 @@ class Quiz extends Component {
   }
 
   UNSAFE_componentDidMount() {
+    if(Platform.OS === "ios" || Platform.OS === "android"){
     clearLocalNotification().then(setLocalNotification);
+  }
   }
 
   UNSAFE_componentWillMount() {
