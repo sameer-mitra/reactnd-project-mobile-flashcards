@@ -36,6 +36,7 @@ This project is an application based on Flashcards that allows the user to:
 
 ### Testing Notes - Warnings
 - You might find the following two warnings when expo start is done:
+
 `reactnd-project-mobile-flashcards/node_modules/react-native-tab-view/lib/module/TabBarIndicator.js
 Attempted import error: 'EasingNode' is not exported from 'react-native-reanimated'.`
 
@@ -46,9 +47,8 @@ react-native-tab-view is needed by react-navigation-tabs. I tried to remove both
 But came across the error:
 Error: `createBottomTabNavigator()` has been moved to `react-navigation-tabs`.
 
-Discussion Thread here:
-https://knowledge.udacity.com/questions/322813
-So these warnings are unavoidable, unless I use something completely different for navigation.
+Discussion Thread [here](https://knowledge.udacity.com/questions/322813).
+These warnings are unavoidable, unless I use something completely different for navigation.
 
 
 
