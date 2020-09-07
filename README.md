@@ -2,11 +2,15 @@ This project was bootstrapped with [Create React Native App](https://github.com/
 
 # Mobile Flashcards Project by Sameer Mitra
 
+
+
 ## Table of Contents
 
 - [Introduction](#introduction)
 - [Instructions](#instructions)
 - [Specifications](#specifications)
+
+
 
 ## Introduction
 
@@ -17,12 +21,36 @@ This project is an application based on Flashcards that allows the user to:
 4. Add a new deck
 5. Add your own questions and answers
 
+
+
 ## Instructions
 ### How to start the Mobile FlashCards application
 - Application may be downloaded or cloned (git clone https://github.com/sameer-mitra/reactnd-project-mobile-flashcards.git )
 - Once downloaded or cloned via git clone terminal command
 - Run `npm install` via terminal, to download all dependencies for the application.
 - Run `expo start --web` via terminal, to launch application's dev server.
+
+### Testing Notes
+ - Tested on Samsung Galaxy S8 Plus, Android 9 via Expo Client using tunnelling.
+ - Tested on iPhone SE, iOS 13.6.1 via Expo Client using tunnelling.
+
+### Testing Notes - Warnings
+- You might find the following two warnings when expo start is done:
+`reactnd-project-mobile-flashcards/node_modules/react-native-tab-view/lib/module/TabBarIndicator.js
+Attempted import error: 'EasingNode' is not exported from 'react-native-reanimated'.`
+
+`reactnd-project-mobile-flashcards/node_modules/react-native-tab-view/lib/module/Pager.js
+Attempted import error: 'EasingNode' is not exported from 'react-native-reanimated'.`
+
+react-native-tab-view is needed by react-navigation-tabs. I tried to remove both, and use react-navigation.
+But came across the error:
+Error: `createBottomTabNavigator()` has been moved to `react-navigation-tabs`.
+
+Discussion Thread here:
+https://knowledge.udacity.com/questions/322813
+So these warnings are unavoidable, unless I use something completely different for navigation.
+
+
 
 ## Specifications
 ### Application Setup
